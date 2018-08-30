@@ -23,7 +23,7 @@ class Auth extends CI_Controller {
 				return;
 			} 
 		} 
-		$data = array('message' => $this->message);
+		$data = array('message' => $this->message, 'title' => 'Login');
 		$this->load->view('admin/login_vw'  , $data); 
 	}
 

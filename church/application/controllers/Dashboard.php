@@ -23,7 +23,8 @@ class Dashboard extends CI_Controller {
 	}
 	function _loadTemplate()
 	{ 
-		$this->load->view('admin/template/dashboard_vw');
+		$data = ['title' => 'Dashboard'];
+		$this->load->view('admin/template/dashboard_vw', $data);
 	}
 }
 

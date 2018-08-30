@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><?php echo site_name(); ?></title>
+    <title><?php echo $title . ' - ' . site_name(); ?></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url(); ?>css/bootstrap.min.css" rel="stylesheet">

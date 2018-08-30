@@ -117,11 +117,10 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li class="active">
+                    <li <?php if($this->uri->segment(1)=='') echo 'class="active"'; ?>>
                         <a href="<?php echo base_url(); ?>"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
-                    </li>  
-                    <li> 
-                         <li>
+                    </li>   
+                    <li  <?php if($this->uri->segment(1)=='people') echo 'class="active"'; ?>>
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-user"></i> People <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
@@ -131,7 +130,6 @@
                                 <a href="<?php echo base_url('people'); ?>">List All</a>
                             </li>
                         </ul>
-                    </li>
                     </li>  
                     <li>
                         <a href="<?php echo base_url('track'); ?>">
