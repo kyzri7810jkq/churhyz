@@ -17,4 +17,14 @@ class People_mdl extends CI_Model {
 		]; 
 		return	$this->db->insert('peopletbl', $data); 
 	}
+
+	function listAll($limit, $start)
+	{
+    	$this->db->limit($limit, $start);
+		$this->db->from('peopletbl');
+		$this->db->order_by("people_id DESC");
+		return $this->db->get(); 
+	}
 }
+
+/* end of file */

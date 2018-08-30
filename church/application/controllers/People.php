@@ -44,8 +44,19 @@ class People extends CI_Controller {
  	 */
 	function viewList()
 	{
-		$data['title'] = 'People List';
 		$this->load->model('people_mdl' , 'peoplemdl'); 
+		$data['title'] = 'People List';
+
+		$config = array();
+   		$config["base_url"]    = base_url('people/viewlist');
+   		$config['total_rows']  = $this->db->count_all("peopletbl"); 
+   		$config['per_page']    = 5; 
+	   	$config["uri_segment"] = 2;
+	   	$this->pagination->initialize($config);
+
+	 
+	   	$page = ($this->uri->segment(2)) ? $this->uri->segment(2) : 0; 
+   		$data["items"] = $this->peoplemdl->listAll($config["per_page"], (($page-1)*$config["per_page"])); 
 		$this->load->view('admin/people/listpeople_vw', $data);
 	}
 
