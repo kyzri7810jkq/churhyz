@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 30, 2018 at 01:18 PM
+-- Generation Time: Aug 31, 2018 at 09:09 AM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.0.26
 
@@ -33,7 +33,7 @@ CREATE TABLE `peopletbl` (
   `firstname` varchar(30) NOT NULL,
   `middlename` varchar(30) NOT NULL,
   `lastname` varchar(30) NOT NULL,
-  `birthday` varchar(20) NOT NULL,
+  `birthday` date NOT NULL,
   `address` varchar(250) NOT NULL,
   `contact` varchar(30) NOT NULL,
   `spouse` varchar(50) DEFAULT NULL,
@@ -46,10 +46,20 @@ CREATE TABLE `peopletbl` (
 --
 
 INSERT INTO `peopletbl` (`people_id`, `firstname`, `middlename`, `lastname`, `birthday`, `address`, `contact`, `spouse`, `date_added`, `added_by`) VALUES
-(1, 'hgjhdgf', 'dhfgj', 'amador', 'jhgjdgfj', 'hjdhgdhj', 'hgjdgfjdh', 'jhgdjgj', '2018-08-30 09:10:09', 0),
-(2, 'hgjhdgfjh', 'hdjgfj', 'sdf', 'gjhdgfjhg', 'jdgfdjh', 'jhgdjfhg', 'jhgdjg', '2018-08-30 09:10:26', 0),
-(3, 'jhdgjhg', 'gjhsdjhg', 'asdajh', 'jhgdjgf', 'gjhdgjhg', 'hjgjdghjh', 'gjhdgdhgjh', '2018-08-30 09:10:53', 0),
-(4, 'jhkdjfhkj', 'jhskdh', 'asd', 'kjhvkdjhk', 'kdjhfkd', 'jhdkjfdhkj', 'kjdhkfjh', '2018-08-30 09:12:16', 1);
+(1, 'hgjhdgf', 'dhfgj', 'amador', '0000-00-00', 'hjdhgdhj', 'hgjdgfjdh', 'jhgdjgj', '2018-08-30 09:10:09', 0),
+(2, 'hgjhdgfjh', 'hdjgfj', 'sdf', '0000-00-00', 'jdgfdjh', 'jhgdjfhg', 'jhgdjg', '2018-08-30 09:10:26', 0),
+(3, 'jhdgjhg', 'gjhsdjhg', 'asdajh', '0000-00-00', 'gjhdgjhg', 'hjgjdghjh', 'gjhdgdhgjh', '2018-08-30 09:10:53', 0),
+(4, 'jhkdjfhkj', 'jhskdh', 'asd', '0000-00-00', 'kdjhfkd', 'jhdkjfdhkj', 'kjdhkfjh', '2018-08-30 09:12:16', 1),
+(5, 'vbndvfb', 'dnbfvnb', 'sdf', '0000-00-00', 'hgkjdgfdjgd', 'nvd;ghs', 'ldhgfj', '2018-08-31 04:50:52', 1),
+(6, 'khdkjfhkj', 'dkjfhdkjh', 'sf', '0000-00-00', 'hkjdhfkjd', 'hjdhfkj', 'hkjdhfkj', '2018-08-31 04:51:00', 1),
+(7, 'kdhkfjh', 'djfhdkjh', 'sdfh', '0000-00-00', 'hkjdfddf', 'kjhkdjfh', 'kjhkdjfhj', '2018-08-31 04:51:08', 1),
+(8, 'hdjfj', 'kdhfkshk', 'sfh', '0000-00-00', 'sdjfdf', 'gdgfhghgjh', 'hdgjfdgfh', '2018-08-31 04:51:15', 1),
+(9, 'jhdkjfhkj', 'jhdkjfhk', 'dfkgh', '0000-00-00', 'kkjdhkjh', 'hjdhfkjh', 'kjhdfjkh', '2018-08-31 04:51:21', 1),
+(10, 'kjdhjkh', 'hdkjfhj', 'sdfh', '0000-00-00', 'kdfdfd', 'hjdfhj', 'kdjdkh', '2018-08-31 04:51:28', 1),
+(12, 'kjhdfkjh', 'kjhdjkfh', 'sdfh', '0000-00-00', 'kjdfhdf', 'hjdhfj', 'kdfjdhkjh', '2018-08-31 04:51:41', 1),
+(14, 'kjhdkjfh', 'jdkfjh', 'dfh', '1989-08-27', 'dkfjdkf', 'kjhdfkj', 'hkjdhfkjdfhk', '2018-08-31 09:07:37', 1),
+(15, 'firstname', 'jhkjdfj', 'Lastname ne', '0000-00-00', 'hkjdhfjdkfd', 'hkjdfhj', 'hkjdfhkj', '2018-08-31 08:57:41', 1),
+(17, 'samuel', 'ignacio ', 'amador', '0000-00-00', 'kjdkfd', 'pelase', 'kjdh', '2018-08-31 08:43:03', 1);
 
 -- --------------------------------------------------------
 
@@ -97,7 +107,7 @@ ALTER TABLE `userstbl`
 -- AUTO_INCREMENT for table `peopletbl`
 --
 ALTER TABLE `peopletbl`
-  MODIFY `people_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `people_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `userstbl`

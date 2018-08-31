@@ -40,24 +40,62 @@ class People extends CI_Controller {
 		$this->load->view('admin/people/addpeople_vw', $data);
 	}
  	
+ 	/* EDIT
+	 */
+	function edit()
+	{
+		$data['title'] = 'Edit People';
+		$this->load->model('people_mdl' , 'peoplemdl'); 
+		$peps =  $this->peoplemdl->getPerson();
+		if($peps->num_rows() < 1)
+		{ 
+			redirect(base_url('people'));
+			exit;
+		} 
+		if($this->input->post('update'))
+		{ 
+			$this->form_validation->set_rules('lastname', 'lastname', 'required');
+			$this->form_validation->set_rules('firstname', 'firstname', 'required');
+			$this->form_validation->set_rules('birthday', 'Birthday', 'required');
+			if ($this->form_validation->run() == TRUE)
+			{   
+				if($this->peoplemdl->update())
+				{  
+					$data['message'] = 'You have successfully updated data'; 
+				}
+			}    
+		} 
+		$data['peps'] = $peps;
+		$this->load->view('admin/people/editpeople_vw', $data);  
+	}
+ 	
+
  	/* Retrieve
  	 */
 	function viewList()
 	{
 		$this->load->model('people_mdl' , 'peoplemdl'); 
-		$data['title'] = 'People List';
-
-		$config = array();
-   		$config["base_url"]    = base_url('people/viewlist');
-   		$config['total_rows']  = $this->db->count_all("peopletbl"); 
-   		$config['per_page']    = 5; 
-	   	$config["uri_segment"] = 2;
-	   	$this->pagination->initialize($config);
-
-	 
-	   	$page = ($this->uri->segment(2)) ? $this->uri->segment(2) : 0; 
-   		$data["items"] = $this->peoplemdl->listAll($config["per_page"], (($page-1)*$config["per_page"])); 
+		$data['title'] = 'People List'; 
 		$this->load->view('admin/people/listpeople_vw', $data);
+	}
+	/* Search
+ 	 */
+	function search()
+	{
+		$this->load->model('people_mdl' , 'peoplemdl'); 
+		$data['title'] = 'Search'; 
+		$this->load->view('admin/people/listpeople_vw', $data);
+	}
+
+	function remove()
+	{ 
+		$this->load->model('people_mdl' , 'peoplemdl');  
+		if( $this->input->post('hidid')){
+			if( $this->peoplemdl->remove()){
+				$this->session->set_userdata('success', 'You have successfully deleted 1 record'); 
+			}
+		}
+		redirect( base_url('people') );
 	}
 
 	/* Login AUTH

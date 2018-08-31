@@ -3,7 +3,12 @@
 
 <style>
   body{
-    background: #fff;
+    background-image: linear-gradient(90deg, lightGreen, lightYellow); 
+  }
+  #login{
+        background: #fff;
+        padding-bottom: 50px;
+        border-radius: 5px;
   }
 </style> 
 <div class="container-fluid">
@@ -14,7 +19,7 @@
 
     <!-- Page Heading -->
     <div class="row"> 
-        <div class="col-md-4 col-md-offset-4">
+        <div class="col-md-4 col-md-offset-4" id="login">
             <h2 class="page-header">
                 <i class="fa fa-user"></i>&nbsp;Login 
             </h2>  
