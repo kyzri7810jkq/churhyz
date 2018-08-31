@@ -3,13 +3,13 @@
 
 <?php 
 list($peps) = $peps->result();
-$lastname  = ($this->input->post('lastname')) ? $this->input->post('lastname') : $peps->lastname;
-$firstname = ($this->input->post('firstname')) ? $this->input->post('firstname') : $peps->firstname;
+$lastname   = ($this->input->post('lastname')) ? $this->input->post('lastname') : $peps->lastname;
+$firstname  = ($this->input->post('firstname')) ? $this->input->post('firstname') : $peps->firstname;
 $middlename = ($this->input->post('middlename')) ? $this->input->post('middlename') : $peps->middlename;
-$birthday = ($this->input->post('birthday')) ? $this->input->post('birthday') : $peps->birthday;
-$contact = ($this->input->post('contact')) ? $this->input->post('contact') : $peps->contact;
-$spouse = ($this->input->post('spouse')) ? $this->input->post('spouse') : $peps->spouse;
-$address = ($this->input->post('address')) ? $this->input->post('address') : $peps->address;
+$birthday   = ($this->input->post('birthday')) ? $this->input->post('birthday') : $peps->birthday;
+$contact    = ($this->input->post('contact')) ? $this->input->post('contact') : $peps->contact;
+$spouse     = ($this->input->post('spouse')) ? $this->input->post('spouse') : $peps->spouse;
+$address    = ($this->input->post('address')) ? $this->input->post('address') : $peps->address;
 ?>
 <div id="wrapper">
  

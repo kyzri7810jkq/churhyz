@@ -16,7 +16,9 @@ class Auth extends CI_Controller {
 			{       
 				list($data) = $this->loginmdl->check_login()->result();
 				$data = array(
-					'userid' => $data->user_id
+					'userid' => $data->user_id,
+					'username' => $data->username,
+					'roleid'   => $data->role_id
 				);
 				$this->session->set_userdata($data);
 				redirect(base_url('dashboard'));

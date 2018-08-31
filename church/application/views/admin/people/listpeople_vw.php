@@ -60,10 +60,15 @@
 						<td><?php echo $p->date_added; ?></td>
 						<td><a href="<?php echo base_url('people/edit?pid=' . $p->people_id); ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a></td>
 						<td>
+						<?php if( array_key_exists($this->session->userdata('roleid'), 
+								can_delete_people())) : ?>
 							<?php echo form_open(base_url('people/remove')); ?>
 							<input type="hidden" name="hidid" value="<?php echo $p->people_id;  ?>">
 							<button type="submit" data-info="ID # <?php echo $p->people_id; ?>" class="btn btn-sm btn-danger deleteme" name="trash"><i class="fa fa-trash"></i></button>
 							<?php echo form_close(); ?>
+						<?php else: ?>
+							<button class="disabled btn-default btn"><i class="fa fa-trash"></i></button>
+						<?php endif; ?>
 						</td>
 					</tr>
 				 	<?php endforeach; ?>
